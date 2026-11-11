@@ -1,0 +1,12 @@
+{
+  "name": "implementer",
+  "description": "A Haiku implementer subagent plus an /implementer:implement workflow that delegates an approved plan and then reviews the diff and runs the checks.",
+  "version": "1.0.0",
+  "author": {
+    "name": "rosdyana"
+  },
+  "homepage": "https://github.com/rosdyana/Implementer",
+  "repository": "https://github.com/rosdyana/Implementer",
+  "license": "MIT",
+  "keywords": ["subagent", "haiku", "implementation", "workflow", "cost"]
+}
