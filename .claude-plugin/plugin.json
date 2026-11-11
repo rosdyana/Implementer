@@ -1,7 +1,7 @@
 {
   "name": "implementer",
   "description": "An implementer subagent (Haiku, Sonnet or Opus, your choice) plus an /implementer:implement workflow that delegates an approved plan and then reviews the diff and runs the checks.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "rosdyana"
   },

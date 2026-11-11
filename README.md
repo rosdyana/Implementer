@@ -75,17 +75,17 @@ After a plan is approved, run:
 /implementer:implement
 ```
 
-Or just say "implement the plan with the implementer."
+### Automatic delegation
 
-### Optional: delegate automatically
+You don't have to ask. A `SessionStart` hook (`hooks/hooks.json`) adds a short rule to every session, including after `/clear` and compaction: once a plan is approved, Claude delegates through `/implementer:implement` by itself. No `CLAUDE.md` changes are needed.
 
-To have Claude use the implementer for every approved plan without being asked, add this to your user `CLAUDE.md`. That's `~/.claude/CLAUDE.md` on macOS/Linux and `%USERPROFILE%\.claude\CLAUDE.md` on Windows.
+The hook only prints `hooks/session-context.md` with `cat`, which works the same in `sh` (macOS/Linux), Git Bash and PowerShell (Windows). It runs no scripts and needs no extra dependencies.
 
-```markdown
-# Implementation
-After a plan is approved, carry it out with the `implementer:implement` skill: it delegates the code edits to the `implementer` subagent on the configured model, then reviews the diff and runs the final checks on the main model.
-Do the edits on the main model instead when the project's CLAUDE.md marks an area as high-risk, or when the change is a one-line fix that isn't worth delegating.
-```
+The rule keeps one-line fixes, and any area your project's `CLAUDE.md` marks as high-risk, on the main model.
+
+If you already have a similar delegation rule in your own `CLAUDE.md`, remove it so the two don't conflict. In particular, remove any "don't override its model" line, because the skill now passes your chosen model.
+
+To stop automatic delegation but keep the command, disable the plugin's hook by forking and deleting `hooks/hooks.json`, or uninstall the plugin.
 
 ## Notes
 
