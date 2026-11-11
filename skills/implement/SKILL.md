@@ -15,7 +15,8 @@ description: Carry out an approved plan by delegating the code edits to the impl
    - the exact files to change and what to change in each,
    - any constraints (style, APIs to use, things not to touch),
    - the verification commands to run (build, tests, lint).
-   Don't override its model in the Agent call.
+
+   **Model:** the user chose `${user_config.model}` for the implementer. Always pass it as `model` in the Agent call, because the plugin can't set it in the agent file itself. If that value isn't `haiku`, `sonnet` or `opus` (for example, if it still shows as a placeholder), use `haiku`.
 
 4. **Review its work yourself. Don't rely on its report alone.**
    - Read the actual diff (`git diff`).

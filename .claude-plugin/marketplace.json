@@ -4,19 +4,25 @@
     "name": "rosdyana"
   },
   "metadata": {
-    "description": "Hand approved plans to a cheap, fast Haiku subagent, then review its work on the main model.",
-    "version": "1.0.0"
+    "description": "Hand approved plans to a cheap, fast subagent, then review its work on the main model.",
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "implementer",
       "source": "./",
-      "description": "A Haiku implementer subagent plus an /implementer:implement workflow that delegates an approved plan and then reviews the diff and runs the checks.",
-      "version": "1.0.0",
+      "description": "An implementer subagent (Haiku, Sonnet or Opus, your choice) plus an /implementer:implement workflow that delegates an approved plan and then reviews the diff and runs the checks.",
+      "version": "1.1.0",
       "author": {
         "name": "rosdyana"
       },
-      "keywords": ["subagent", "haiku", "implementation", "workflow", "cost"],
+      "keywords": [
+        "subagent",
+        "haiku",
+        "implementation",
+        "workflow",
+        "cost"
+      ],
       "category": "workflow"
     }
   ]
