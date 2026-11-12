@@ -1,0 +1,1 @@
+{"hookSpecificOutput":{"hookEventName":"PostToolUse","additionalContext":"Plan approved. Your next action is the Skill call to implementer:implement, before any Edit/Write. Only if the project's CLAUDE.md marks the area high-risk, or the whole change is a single line, do it on the main model instead, and tell the user which exception applies first."}}

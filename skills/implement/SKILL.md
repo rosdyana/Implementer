@@ -7,9 +7,11 @@ description: Carry out an approved plan by delegating the code edits to the impl
 
 1. **Confirm there is an approved plan.** If there isn't one, write a plan and get it approved first.
 
-2. **Decide whether to delegate.** Do the edits yourself on the main model instead when:
+2. **Decide whether to delegate.** Delegate unless one of exactly two exceptions applies — nothing else qualifies:
    - the project's CLAUDE.md marks the area as high-risk, or
-   - the change is a one-line fix that isn't worth delegating.
+   - the whole change is a single line.
+
+   "I already know the content", "it's faster to do it myself", "the files are new" or "delegation overhead" are not exceptions. If you use an exception, tell the user which one before editing.
 
 3. **Delegate to the `implementer` subagent.** It can't see this conversation, so the prompt must stand on its own:
    - the exact files to change and what to change in each,

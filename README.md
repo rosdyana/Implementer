@@ -77,15 +77,20 @@ After a plan is approved, run:
 
 ### Automatic delegation
 
-You don't have to ask. A `SessionStart` hook (`hooks/hooks.json`) adds a short rule to every session, including after `/clear` and compaction: once a plan is approved, Claude delegates through `/implementer:implement` by itself. No `CLAUDE.md` changes are needed.
+You don't have to ask. Two hooks in `hooks/hooks.json` handle it:
 
-The hook only prints `hooks/session-context.md` with `cat`, which works the same in `sh` (macOS/Linux), Git Bash and PowerShell (Windows). It runs no scripts and needs no extra dependencies.
+- A `SessionStart` hook adds a short rule to every session, including after `/clear` and compaction: once a plan is approved, Claude delegates through `/implementer:implement` by itself, and any plan it writes gets an "Execution: delegate via `implementer:implement`" line.
+- A `PostToolUse` hook on `ExitPlanMode` repeats the reminder at the moment you approve a plan, when it matters most.
 
-The rule keeps one-line fixes, and any area your project's `CLAUDE.md` marks as high-risk, on the main model.
+No `CLAUDE.md` changes are needed.
+
+Both hooks only print a file with `cat` (`hooks/session-context.md` and `hooks/plan-approved.json`), which works the same in `sh` (macOS/Linux), Git Bash and PowerShell (Windows). No scripts, no extra dependencies.
+
+There are only two exceptions, which stay on the main model: single-line changes, and any area your project's `CLAUDE.md` marks as high-risk. When Claude uses one, it tells you which.
 
 If you already have a similar delegation rule in your own `CLAUDE.md`, remove it so the two don't conflict. In particular, remove any "don't override its model" line, because the skill now passes your chosen model.
 
-To stop automatic delegation but keep the command, disable the plugin's hook by forking and deleting `hooks/hooks.json`, or uninstall the plugin.
+To stop automatic delegation but keep the command, disable the plugin's hooks by forking and deleting `hooks/hooks.json`, or uninstall the plugin.
 
 ## Notes
 
